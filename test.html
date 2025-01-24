@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <p id="one">hello</p> 
+   <h1 id="two">welcome</h1>
+   <button onclick="change()">change</button>  <!--onclick-- click to change-->
+   <script>
+    var para=document.getElementById("one") //get element html through a js
+    var head=document.getElementById("two")
+    console.log(para.textContent)
+    console.log(h1.textContent)
+    para.textContent="bye"                 //change element
+    function change(){
+        head.textContent="vanakam"
+    }
+   </script>
+</body>
+</html>

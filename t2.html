@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        table {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        span {
+            color: red;
+            font-size: 16px;
+        }
+        .weak { background-color: red; color: white; padding: 3px; }
+        .medium { background-color: yellow; color: black; padding: 3px; }
+        .strong { background-color: green; color: white; padding: 3px; }
+        .verystrong { background-color: darkgreen; color: white; padding: 3px; }
+       .nave a{
+    font-style: 10px;
+    color:rgb(246, 245, 245);
+    font-weight: 500;
+    margin:0 20px;
+    border-bottom: 3px solid transparent;
+    padding:70px;
+}
+*{
+    margin: 0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+.header{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    padding: 20px;
+    background: rgba(14, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+
+}
+.nave a:hover
+{
+    color:orangered;
+}
+    </style>
+</head>
+<body>
+     <header class="header">
+        <a href="#" class="logo"><h1><span>vign</span>eswaran</h1></a>
+    <nav class="nave">
+                    <a href="#" class="link1"  >HOME</a>
+                    <a href="#" class="link2" >ABOUT</a>
+                    <a href="#" class="link3" >PROJECTS</a>
+                    <a href="#" class="link4" >COURSES</a>
+                    <a href="#" class="link5" >CONTECTUS</a>
+                    </nav>
+    </header>
+
+<form action="#" onsubmit="return check()" autocomplete="off">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" id="name"  /></td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td><input type="number" id="age"  /></td>
+        </tr>
+        <tr>
+            <td>Mobile No:</td>
+            <td><input type="tel" id="mobile" maxlength="10"  /></td>
+        </tr>
+        <tr>
+            <td>Email ID:</td>
+            <td><input type="email" id="email" /></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" id="password" oninput="checkPass()" onmouseout="clearMessage()"  /></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Sign Up" /></td>
+        </tr>
+    </table>
+    <span id="message"></span>
+</form>
+
+<script>
+    function check() {
+        const namePattern = /^[A-Za-z ]+$/; // Allows letters and spaces
+        const mobilePattern = /^[0-9]{10}$/; // Exactly 10 digits
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Basic email pattern 
+
+        const nameInput = document.getElementById("name").value;
+        const mobileInput = document.getElementById("mobile").value;
+        const emailInput = document.getElementById("email").value;
+         if (inputs[0].value === "") {
+            alert("Please fill in your name.");
+            return false;
+        }
+        if (!namePattern.test(nameInput)) {
+            alert("Please use letters only for your name.");
+            return false;
+        }
+        if (inputs[2].value === "") {
+            alert("Please fill in your mobile number.");
+            return false;
+        }
+        if (!mobilePattern.test(mobileInput)) {
+            alert("Please use exactly 10 digits for your mobile number.");
+            return false;
+        }
+           if (inputs[3].value === "") {
+            alert("Please fill in your email ID.");
+            return false;
+        }
+        if (!emailPattern.test(emailInput)) {
+            alert("Please enter a valid email format.");
+            return false;
+        }
+        
+        return true;
+    }
+
+    function checkPass() {
+        const password = document.getElementById("password").value;
+        const length = password.length;
+        const message = document.getElementById("message");
+
+        if (length < 3) {
+            message.className = "weak";
+            message.innerHTML = "Your password is weak";
+        } else if (length >= 3 && length <= 5) {
+            message.className = "medium";
+            message.innerHTML = "Your password is medium";
+        } else if (length > 5 && length <= 8) {
+            message.className = "strong";
+            message.innerHTML = "Your password is strong";
+        } else if (length > 8) {
+            message.className = "verystrong";
+            message.innerHTML = "Your password is very strong";
+        }
+    }
+
+    function clearMessage() {
+        const message = document.getElementById("message");
+        message.className = "";
+        message.innerHTML = "";
+    }
+</script>
+

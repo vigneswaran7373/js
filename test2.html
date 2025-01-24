@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="num1" >
+    <input id="num2" >
+    <p id="pl">result</p>
+    <button onclick="tot()">result</button>
+    <script>
+        var n1=document.getElementById("num1")
+        var n2=document.getElementById("num2")
+        var result=document.getElementById("result")
+        function tot(){
+            var n1value=Number(n1.value)
+            var n2value=Number(n2.value)
+            var sum=n1value+n2value
+            pl.textContent=sum
+            console.log(sum)
+        }
+        
+    </script>
+</body>
+</html>
